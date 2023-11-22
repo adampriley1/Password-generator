@@ -91,30 +91,24 @@ var passwordLength = 0;
 var selectedOption = [];
 
 function generatePassword() {
-  //gets the length of password from user (If < 8, then show warning prompt, if greater than 127, show warning prompt.  Store input as passwordLength)
-
   passwordLength = prompt(
     "How many characters long do you want your password to be?"
   );
 
   if (isNaN(passwordLength)) {
     alert("Please enter numbers only");
-    passwordLength = prompt(
-      "How many characters long do you want your password to be?"
-    );
-  }  if (passwordLength < 8) {
-    alert("Minimum password length is 8 characters");
-    passwordLength = prompt(
-      "How many characters long do you want your password to be?"
-    );
-  } if (passwordLength > 128) {
-    alert("Maximum password length is 128 characters");
-    passwordLength = prompt(
-      "How many characters long do you want your password to be?"
-    );
-  } else {
-    validatedPasswordLength = parseInt(passwordLength);
+    return;
   }
+  if (passwordLength < 8) {
+    alert("Minimum password length is 8 characters");
+    return;
+  }
+  if (passwordLength > 128) {
+    alert("Maximum password length is 128 characters");
+    return;
+  }
+
+  passwordLength = parseInt(passwordLength);
 
   //Does the user want to include uppercase? if so, add to array "selectedOption"
 
@@ -158,15 +152,13 @@ function generatePassword() {
   }
 }
 
-// Function for getting a random element from an array
-
-var randomPassword = "";
-
+// Function for getting a random element from the selected options array
 
 function getRandom() {
+  let randomPassword = "";
   for (var i = 0; i < passwordLength; i++) {
     randomPassword +=
-selectedOption[Math.floor(Math.random() * selectedOption.length)];
+      selectedOption[Math.floor(Math.random() * selectedOption.length)];
   }
 
   return randomPassword;
