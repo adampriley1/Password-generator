@@ -87,9 +87,12 @@ var upperCasedCharacters = [
   "Y",
   "Z",
 ];
+
+//Main function to generate the password 
 var passwordLength = 0;
 var selectedOption = [];
 
+//ensure password length is correct
 function generatePassword() {
   passwordLength = prompt(
     "How many characters long do you want your password to be?"
@@ -160,7 +163,7 @@ function getRandom() {
     randomPassword +=
       selectedOption[Math.floor(Math.random() * selectedOption.length)];
   }
-
+  
   return randomPassword;
 }
 
