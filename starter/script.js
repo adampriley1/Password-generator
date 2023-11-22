@@ -102,12 +102,12 @@ function generatePassword() {
     passwordLength = prompt(
       "How many characters long do you want your password to be?"
     );
-  } else if (passwordLength < 8) {
+  }  if (passwordLength < 8) {
     alert("Minimum password length is 8 characters");
     passwordLength = prompt(
       "How many characters long do you want your password to be?"
     );
-  } else if (passwordLength > 128) {
+  } if (passwordLength > 128) {
     alert("Maximum password length is 128 characters");
     passwordLength = prompt(
       "How many characters long do you want your password to be?"
@@ -161,15 +161,15 @@ function generatePassword() {
 // Function for getting a random element from an array
 
 var randomPassword = "";
-var generatedPassword = "";
+
 
 function getRandom() {
   for (var i = 0; i < passwordLength; i++) {
-    generatedPassword +=
-      selectedOption[Math.floor(Math.random() * selectedOption.length)];
+    randomPassword +=
+selectedOption[Math.floor(Math.random() * selectedOption.length)];
   }
 
-  return generatedPassword;
+  return randomPassword;
 }
 
 // Get references to the #generate element
